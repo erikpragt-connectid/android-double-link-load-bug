@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open URL with Random UUID</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="display: flex; flex-direction: column; align-items: center; height: 100vh; margin: 0;">
+
+
+<div>
+    <label for="urlField">Current URL:</label>
+    <input type="text" id="urlField" size="100" readonly>
+</div>
+
+<button onclick="generateNewURL()">Generate New URL</button>
+<button onclick="openTestPage()">Open Test Page</button>
+
+
+<script>
+    let currentUUID;
+
+    function generateUUID() {
+        // Function to generate a random UUID
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            const r = Math.random() * 16 | 0,
+                v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    function generateNewURL() {
+        // Generate a new random UUID
+        currentUUID = generateUUID();
+
+        // Construct the URL with the current UUID
+        const url = `https://android.jworks.com.au/echo?ref=${currentUUID}`;
+
+        // Display the current URL in the input field
+        document.getElementById('urlField').value = url;
+    }
+
+    function openTestPage() {
+        // Check if a URL has been generated
+        if (!currentUUID) {
+            alert('Please generate a new URL first.');
+            return;
+        }
+
+        // Construct the URL with the current UUID
+        const url = `https://app.testdomain.com/testpage?ref=${currentUUID}`;
+
+        // Open the URL in a new tab/window
+        window.open(url, '_blank');
+    }
+</script>
+
+</body>
+</html>
+
+
+
