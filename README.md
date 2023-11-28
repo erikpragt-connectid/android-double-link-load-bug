@@ -11,3 +11,14 @@ The project consists of several components:
 ## Deployment
 
 Currently, it's deployed outside of ConnectID to make deployment a bit easier since it requires a bit of setup on the server side, which is easier to do using a few Nginx servers.
+
+## Demo
+
+For a live demo (if still operational), you can go to https://connectid.jworks.com.au.
+
+Alternatively, you can look at this video:
+
+
+https://github.com/connectid-tools/android-double-link-load-bug/assets/119275045/eb923b20-b724-4664-937d-c96230b97c71
+
+
