@@ -26,7 +26,9 @@ which is easier to do using a few Nginx servers.
 
 ## Demo
 
-For a live demo, install the APK, either by building it or by downloading it here.
+For a live demo, install the APK, either by building it or by downloading it here:
+
+[app-debug.apk.zip](https://github.com/erikpragt-connectid/android-double-link-load-bug/files/13945034/app-debug.apk.zip)
 
 Then:
 - using the Android phone, browse to https://connectid.jworks.com.au
