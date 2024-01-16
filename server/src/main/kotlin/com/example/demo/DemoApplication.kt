@@ -20,11 +20,15 @@ class EchoController(val cache: RefCache) {
 
     @GetMapping("/echo")
     fun echo(@RequestParam("ref") ref: String, @RequestHeader httpHeaders: Map<String, String>): Map<String, MutableList<Map<String, String>>?> {
-        cache.store(ref, httpHeaders)
+        cache.store(ref, httpHeaders.filterKeys { it == "user-agent" })
         return mapOf(ref to cache.get(ref))
     }
-}
 
+    @GetMapping("/dump")
+    fun dump(): Map<String, MutableList<Map<String, String>>?> {
+        return cache.all()
+    }
+}
 
 @Component
 object RefCache {
@@ -36,4 +40,6 @@ object RefCache {
     }
 
     fun get(ref: String) = content[ref]
+
+    fun all() = content
 }
